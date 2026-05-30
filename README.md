@@ -41,7 +41,7 @@ grep -rP '\p{Greek}' dev/ devtest/ || echo "clean"
 
 This bug was reported to FLORES+ / OLDI so it can be fixed in the official release:
 
-- **URL:** https://huggingface.co/datasets/openlanguagedata/flores_plus/discussions
+- **URL:** https://huggingface.co/datasets/openlanguagedata/flores_plus/discussions/37
 - **Summary:** Greek epsilon (U+03B5) and Gamma (U+0393) used instead of Latin open E (U+025B) and Gamma (U+0194) in 323 sentences.
 - **Fix:** Simple two-character substitution.
 

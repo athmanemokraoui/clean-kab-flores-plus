@@ -1,0 +1,31 @@
+Kabyle FLORES+ cleaning report
+
+Dataset: openlanguagedata/flores_plus (kab_Latn)
+Reference: Unicode CLDR standard alphabet for Kabyle [kab]
+Total sentences: 2009
+Affected sentences: 323 (16.1%)
+Total wrong-char occurrences: 471
+
+Wrong -> correct character map (Unicode)
+'ε' GREEK SMALL LETTER EPSILON U+03B5  ->  'ɛ' LATIN SMALL LETTER OPEN E U+025B   (occurrences: 430)
+'Γ' GREEK CAPITAL LETTER GAMMA U+0393  ->  'Ɣ' LATIN CAPITAL LETTER GAMMA U+0194   (occurrences: 41)
+
+Split breakdown
+  dev:     141 affected sentences
+  devtest: 182 affected sentences
+
+Output files
+  - dev/kab_Latn.jsonl
+  - devtest/kab_Latn.jsonl
+  - kabyle_changes_log.tsv
+
+Verification
+Run the following to confirm zero Greek chars remain:
+  grep -rP '\p{Greek}' dev/ devtest/ || echo 'clean'
+
+Upstream report
+Report this bug to FLORES+ / OLDI:
+  https://huggingface.co/datasets/openlanguagedata/flores_plus/discussions
+Bug: Greek epsilon (e, U+03B5) and Gamma (G, U+0393) used instead of
+      Latin open E (e, U+025B) and Latin Gamma (G, U+0194).
+Fix:  Simple 2-character substitution affecting 323 sentences (16.1%).
